@@ -18,7 +18,7 @@ Welcome to my GitHub! I’m a computer engineering student at Boston University 
 
 ---
 # What I am currently working on
-🖥️ **Cultured Kids Cuisine:** As a Web Development Intern at Cultured Kids Cuisine, I contributed to building and improving a dynamic, user-friendly website aimed at promoting cultural awareness through culinary education. This experience allowed me to apply my frontend development skills in a real-world environment while collaborating with a diverse and mission-driven team.
+As a Web Development Intern at Cultured Kids Cuisine, I contributed to building and improving a dynamic, user-friendly website aimed at promoting cultural awareness through culinary education. This experience allowed me to apply my frontend development skills in a real-world environment while collaborating with a diverse and mission-driven team.
 
 # 🧠 Key Things I Learned
 **Responsive Web Design**
