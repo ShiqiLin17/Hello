@@ -22,7 +22,7 @@ Welcome to my GitHub! I’m a computer engineering student at Boston University 
 
 # 🧠 Key Things I Learned
 **Responsive Web Design**
-I gained hands-on experience using CSS media queries and layout techniques like flexbox and grid to ensure all pages looked and worked properly on devices of various screen sizes (mobile, tablet, desktop).
+I gained hands-on experience using CSS media queries and layout techniques to ensure all pages looked and worked properly on devices of various screen sizes (mobile, tablet, desktop).
 
 **Wireframe to Code Implementation**
 I practiced translating Figma wireframes into pixel-perfect React components, strengthening my ability to read and replicate design specifications accurately.
