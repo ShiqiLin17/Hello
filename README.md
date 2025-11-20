@@ -82,17 +82,18 @@ The system follows three sequential modules:
 Person Data Attributes (Full Definition)
 
 This table lists the structured fields of the Person object (aligned with the project's data schema):
-Field Type Description & Examples Special Notes 
-id string Unique identifier (e.g., "ed", "U123", "123", "person#1") — 
-gradYear int Graduation year (e.g., 2029, 2026, 2001) Supports ANY wildcard 
-region enum Geographic region (e.g., us-northeast, discrete selectable values) Primary grouping field 
-primaryOS enum Operating system (e.g., MacOS, Windows, Other) — 
-engFocus enum Engineering focus (e.g., specific tracks, Other) Primary grouping field 
-studyTime enum Study time window (e.g., Morning, Night, Afternoon) Discrete value 
-enrolledCourses int Number of enrolled courses (range 0–6) Supports ANY wildcard 
-favColors string Favorite color(s) (e.g., "blue-silver") Supports ANY wildcard 
-hobbies string Interest tags (e.g., "movies-music") Supports ANY wildcard 
-languages string Spoken languages (e.g., "english-spanish") Supports ANY wildcard 
+| Field              | Type       | Description & Examples                                                                 | Special Notes                  |
+| :----------------- | :--------- | :------------------------------------------------------------------------------------- | :----------------------------- |
+| `id`               | `string`   | Unique identifier (e.g., `"ed"`, `"U123"`, `"123"`, `"person#1"`)                      | —                              |
+| `gradYear`         | `int`      | Graduation year (e.g., `2029`, `2026`, `2001`)                                         | Supports `ANY` wildcard        |
+| `region`           | `enum`     | Geographic region (e.g., `us-northeast`, discrete selectable values)                    | Primary **grouping** field     |
+| `primaryOS`        | `enum`     | Operating system (e.g., `MacOS`, `Windows`, `Other`)                                   | —                              |
+| `engFocus`         | `enum`     | Engineering focus (e.g., specific tracks, `Other`)                                      | Primary **grouping** field     |
+| `studyTime`        | `enum`     | Study time window (e.g., `Morning`, `Night`, `Afternoon`)                               | Discrete value                 |
+| `enrolledCourses`  | `int`      | Number of enrolled courses (range `0–6`)                                                | Supports `ANY` wildcard        |
+| `favColors`        | `string`   | Favorite color(s) (e.g., `"blue-silver"`)                                               | Supports `ANY` wildcard        |
+| `hobbies`          | `string`   | Interest tags (e.g., `"movies-music"`)                                                 | Supports `ANY` wildcard        |
+| `languages`        | `string`   | Spoken languages (e.g., `"english-spanish"`)                                           | Supports `ANY` wildcard        |
 
 CMake Configuration (CMakeLists.txt)
 
