@@ -1,7 +1,3 @@
-Below is a **clean, GitHub-ready Markdown version** of your entire content — fully formatted with tables, headings, bold text, and code blocks.
-
----
-
 # **Study Group Matcher**
 
 A robust **C++17 application** designed to generate **high-cohesion study groups** from multiple data sources, with customizable grouping logic and transparent cohesion scoring. Ideal for educators, administrators, or students seeking balanced, collaborative teams based on shared attributes.
@@ -291,17 +287,4 @@ Enter output path: ./my_study_groups.csv
 5. Open PR with description
 
 ---
-
-# **License**
-
-MIT License — see `LICENSE` file.
-
----
-
-If you'd like, I can also produce:
-
-✅ A shorter README
-✅ A version with collapsible `<details>` sections
-✅ A version with emojis removed
-Just tell me!
 
