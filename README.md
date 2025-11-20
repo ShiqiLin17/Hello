@@ -17,8 +17,10 @@ The app supports three distinct data inputs to accommodate different use cases:
 
 2. #Customizable Grouping Logic
 Grouping Mode	Description	Scoring Weighting	
+--------------	-------------	-------------------	
 Default (Optimal for Study Groups)	Prioritizes collaboration-critical attributes	Language (40%) > Engineering Focus (30%) > Study Time (20%) > Course Load (10%)	
 Custom	User selects 1–2 attributes to prioritize	Single attribute: 100%Dual attributes: 50% each	
+
 
 3. #Supported Attributes
 Attribute Type Importance Description 
