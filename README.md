@@ -1,11 +1,11 @@
 Study Group Matcher
 
 A robust C++17 application designed to generate high-cohesion study groups from multiple data sources, with customizable grouping logic and actionable cohesion scoring. Ideal for educators, academic administrators, or students seeking to form balanced, collaborative teams based on shared attributes.
-📋 Detailed App Functionality
+📋 #Detailed App Functionality
 
 Study Group Matcher streamlines the process of creating study groups by leveraging data-driven similarity scoring and flexible data integration. Below is a breakdown of core features:
 
-1. Multi-Source Data Integration
+1. #Multi-Source Data Integration
 
 The app supports three distinct data inputs to accommodate different use cases:
 
@@ -15,12 +15,12 @@ The app supports three distinct data inputs to accommodate different use cases:
 
 • Public JSON URL Fetch: Parses student data from public HTTP/HTTPS JSON endpoints (e.g., GitHub Gists, APIs) with automatic SSL verification, redirect following, and 15-second timeout for reliability.
 
-2. Customizable Grouping Logic
+2. #Customizable Grouping Logic
 Grouping Mode Description Scoring Weighting 
 Default (Optimal for Study Groups) Prioritizes collaboration-critical attributes Language (40%) > Engineering Focus (30%) > Study Time (20%) > Course Load (10%) 
 Custom User selects 1–2 attributes to prioritize Single attribute: 100%Dual attributes: 50% each 
 
-3. Supported Attributes
+3. #Supported Attributes
 Attribute Type Importance Description 
 Engineering Focus Enum High Academic/professional specialization (e.g., computer_systems, cybersecurity) 
 Study Time Enum High Preferred study window (Morning/Afternoon/Evening/Night) 
@@ -30,60 +30,33 @@ Region Enum Low Geographic region (e.g., us-west, uk-ireland)
 Hobby Multi-value Low Recreational interests (e.g., Coding-Hiking) 
 OS Enum None Primary operating system (MacOS/Windows/Linux) 
 
-4. Cohesion Scoring & Transparency
+4. #Cohesion Scoring & Transparency
 
 Each group receives a 0–100 cohesion score calculated as the average similarity between all member pairs. Higher scores indicate more aligned members, helping users quickly identify the most collaborative groups.
 
-5. Export & Visualization
+5. #Export & Visualization
+Output Type Description Use Case 
+Human-Readable Prints groups with member details (ID, focus, study time, languages, course load) and cohesion scores Quick review 
+CSV Export Saves groups to a CSV file Sharing, analysis, LMS integration 
 
-• Human-Readable Output: Prints groups with member details (ID, focus, study time, languages, course load) and cohesion scores.
-
-• CSV Export: Saves groups to a CSV file for sharing, analysis, or integration with other tools (e.g., spreadsheets, LMS platforms).
-
-6. Input Validation & Error Handling
+6. #Input Validation & Error Handling
 
 • Validates student data (e.g., non-empty IDs, graduation years 1900–2100, course load 0–6 or ANY).
 
 • Provides descriptive errors for invalid inputs (e.g., malformed JSON, unreadable CSV files, HTTP request failures).
-🔧 Key Design Decisions
+🔧 #Key Design Decisions
 
 The app’s architecture is built around modularity, scalability, and maintainability, with key design choices including:
+Design Decision Implementation Benefit 
+Polymorphic Data Readers Abstract PersonReader base class + CSVReader/SimulatedDataReader subclasses Easy extension to new data sources (e.g., Excel, SQL) 
+Separation of Concerns 3-layer architecture (Data → Business Logic → Presentation) Core logic decoupled from UI/parsing; easier maintenance 
+C++17 Compliance Uses std::optional, std::unordered_set, structured bindings Type safety, performance, broad compatibility 
+Greedy Clustering Algorithm Seed-based sorting + top-N selection Balances speed (O(n² log n)) and cohesion 
+Reusable Helpers Static methods (e.g., validatePerson, parseDelimitedSet) Reduces code duplication; improves consistency 
 
-1. Polymorphic Data Readers
+🚀 #Step-by-Step Setup & Run Instructions
 
-Abstract base class PersonReader defines a common read() interface, with subclasses CSVReader and SimulatedDataReader implementing source-specific logic. This design allows easy extension to new data sources (e.g., Excel, SQL) without modifying core grouping logic.
-
-2. Separation of Concerns
-
-• Data Layer: Handles input parsing (CSV/JSON) and validation (via PersonReader and PersonEnums).
-
-• Business Logic Layer: Implements grouping/clustering (via StudyGroupMatcher) independent of data sources.
-
-• Presentation Layer: Manages user interaction and output (via main.cpp), keeping core logic decoupled from UI.
-
-3. C++17 Standard Compliance
-
-Uses modern C++17 features (e.g., std::optional, std::unordered_set, structured bindings) for type safety, performance, and readability. Avoids C++20+ features (e.g., std::unordered_set::contains()) to ensure broad compatibility.
-
-4. Greedy Clustering Algorithm
-
-Employs a greedy approach to group formation:
-
-1. Select a random "seed" student from the remaining pool.
-
-2. Sort remaining students by similarity to the seed.
-
-3. Add the top N-1 students to form a group.
-
-4. Repeat until all students are grouped.
-This balances performance (O(n² log n) time complexity) and cohesion, making it suitable for datasets up to 500 students.
-
-5. Reusable Helper Methods
-
-Static helpers (e.g., validatePerson, parseDelimitedSet, formatSentinelInt) centralize common logic, reducing code duplication and improving maintainability.
-🚀 Step-by-Step Setup & Run Instructions
-
-Prerequisites
+#Prerequisites
 Component Requirements 
 Operating System macOS 12+ (Apple Silicon or Intel) 
 C++ Compiler Clang (Xcode Command Line Tools) or GCC 9+ 
@@ -91,7 +64,7 @@ Build System CMake 3.10+
 Dependencies curl (HTTP requests), nlohmann-json (JSON parsing) 
 IDE (Optional) CLion, Xcode, or VS Code 
 
-Step 1: Install Dependencies
+#Step 1: Install Dependencies
 
 Use Homebrew to install required libraries:
 # Install Xcode Command Line Tools (if not already installed)
@@ -102,12 +75,12 @@ brew install curl
 
 # Install nlohmann-json (for JSON parsing)
 brew install nlohmann-json
-Step 2: Clone the Repository
+#Step 2: Clone the Repository
 git clone https://github.com/your-username/study-group-matcher.git
 cd study-group-matcher
-Step 3: Build the Application
+#Step 3: Build the Application
 
-Option A: Using CLion (Recommended)
+#Option A: Using CLion (Recommended)
 
 1. Open CLion → Select "Open" → Navigate to the cloned repository folder.
 
@@ -117,7 +90,7 @@ Option A: Using CLion (Recommended)
 
 4. Click the Build icon (hammer) or press Cmd+B (macOS) / Ctrl+B (Windows/Linux).
 
-Option B: Using Command Line
+#Option B: Using Command Line
 # Create build directory
 mkdir cmake-build-debug
 cd cmake-build-debug
@@ -127,9 +100,9 @@ cmake ..
 
 # Build (use -j to speed up with multiple cores)
 make -j 8
-Step 4: Run the Application
+#Step 4: Run the Application
 
-Option A: Using CLion
+#Option A: Using CLion
 
 1. Select study-group-matcher as the run target (top-right dropdown).
 
@@ -137,13 +110,13 @@ Option A: Using CLion
 
 3. Follow command-line prompts (see Usage Walkthrough).
 
-Option B: Using Command Line
+#Option B: Using Command Line
 # Navigate to build directory (if not already there)
 cd cmake-build-debug
 
 # Run executable
 ./study-group-matcher
-Step 5: Test the Application
+#Step 5: Test the Application
 
 Validate core functionality with these test cases:
 Test Case Steps Expected Outcome 
@@ -151,25 +124,25 @@ Simulated Data 1. Select Option 1 → Enter 6 students2. Group size = 33. Defaul
 CSV Import 1. Create students.csv (see CSV Schema)2. Select Option 2 → Enter file path3. Group size = 2 App loads students and generates groups 
 JSON URL 1. Select Option 3 → Enter test URL:https://gist.githubusercontent.com/anonymous/8a9f3f60e79078c4189d66219815898f/raw/students_test.json2. Group size = 2 App fetches 5 students and generates valid groups 
 
-📊 Data Format Schemas
+📊 #Data Format Schemas
 
-CSV Format (Required Columns)
+#CSV Format (Required Columns)
 
 Save as students.csv (header row optional; use ANY for wildcards, - for multi-values):
 ID,GraduationYear,Region,PrimaryOS,EngineeringFocus,StudyTime,CourseLoad,FavoriteColors,Hobbies,Languages
 student_001,2025,us-west,MacOS,computer_systems,Afternoon,4,Blue-Green,Coding-Hiking,English-Spanish
 student_002,ANY,uk-ireland,Windows,neural_engineering,Evening,3,Yellow-Purple,Reading-Music,English-Mandarin
 student_003,2026,china,Linux,cybersecurity,Morning,ANY,Red-Gray,Gaming-Sports,English-Russian
-JSON Format (Public URL)
+#JSON Format (Public URL)
 
 Must be a JSON array of student objects (matches CSV schema):
 [
   {"ID":"student_001","GraduationYear":"2025","Region":"us-west","PrimaryOS":"MacOS","EngineeringFocus":"computer_systems","StudyTime":"Afternoon","CourseLoad":"4","FavoriteColors":"Blue-Green","Hobbies":"Coding-Hiking","Languages":"English-Spanish"},
   {"ID":"student_002","GraduationYear":"ANY","Region":"uk-ireland","PrimaryOS":"Windows","EngineeringFocus":"neural_engineering","StudyTime":"Evening","CourseLoad":"3","FavoriteColors":"Yellow-Purple","Hobbies":"Reading-Music","Languages":"English-Mandarin"}
 ]
-🛠️ Troubleshooting
+🛠️ #Troubleshooting
 
-Common Issues & Fixes
+#Common Issues & Fixes
 Error Message Root Cause Solution 
 "json.hpp file not found" nlohmann-json not installed or CMake can’t find it Reinstall: brew reinstall nlohmann-jsonVerify HOMEBREW_PREFIX in CMakeLists.txt 
 "curl library not found" curl not installed or CMake can’t find it Reinstall: brew reinstall curlEnsure link_directories points to /opt/homebrew/lib (Apple Silicon) or /usr/local/lib (Intel) 
@@ -177,7 +150,7 @@ Error Message Root Cause Solution
 "HTTP request failed" Invalid URL, private endpoint, or network issue Use the test URL providedCheck internet connectivity 
 "JSON parse error" Malformed JSON (e.g., missing commas, invalid array) Validate with JSONLintEnsure top-level is an array ([]) 
 
-For Intel Mac Users
+#For Intel Mac Users
 
 Update HOMEBREW_PREFIX in CMakeLists.txt from /opt/homebrew to /usr/local:
 # Replace:
@@ -185,7 +158,7 @@ set(HOMEBREW_PREFIX "/opt/homebrew")
 
 # With:
 set(HOMEBREW_PREFIX "/usr/local")
-📌 Usage Walkthrough
+📌 #Usage Walkthrough
 
 1. Launch the App: Run the executable to see the welcome screen.
 
@@ -222,11 +195,11 @@ Your choice (1/2): 1
   • ID: student_002 | Focus: neural_engineering | Time: Evening | Langs: English-Mandarin | Courses: 3
   • ID: student_004 | Focus: neural_engineering | Time: Evening | Langs: English-Hindi | Courses: 4
   • ID: student_006 | Focus: cybersecurity | Time: Morning | Langs: English-Russian | Courses: ANY
-7. Export to CSV:
+7. Export to CSV (Optional):
 Save groups to CSV? (1=Yes/0=No): 1
 Enter output path (e.g., ./study_groups.csv): ./my_study_groups.csv
 ✅ Groups saved to: ./my_study_groups.csv
-🤝 Contributing
+🤝 #Contributing
 
 1. Fork the repository.
 
@@ -237,6 +210,3 @@ Enter output path (e.g., ./study_groups.csv): ./my_study_groups.csv
 4. Add test cases for new functionality.
 
 5. Submit a pull request with a detailed description of changes.
-📄 License
-
-This project is licensed under the MIT License. See the LICENSE file for details.
